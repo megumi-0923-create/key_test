@@ -20,7 +20,7 @@ content_program= ''
 content_csv=''
 ext_skip_test=['.bytes','.meta','.fab','.fbx','.library','.png','.DS_Store','.dll','.exe','.ico','.cur','.unityweb',
                '.package','.pdf','.jpg','.PNG','.zip','.bin','.js','.fcc','.tga','.FBX','.asset','.exr','.mmd','.ttc',
-               '.so','.tif','.cs','.ttf','.mmdb','.gif','.pdb','.ilk','.obj','.idb','.iobj']
+               '.so','.tif','.cs','.ttf','.mmdb','.gif','.pdb','.ilk','.obj','.idb','.iobj','.ipdb']
 
 dir_skip_test=['node_modules','packages','StreamingAssets','GameApp_Beta','GameApp','EditorApp','ProjectTemplate']
 file_skip_test=['fe_loc-en.json','fe_loc-vi.json','fe_loc-zh-Hans.json','fe_loc-zh-Hant.json','en.json','vi.json','zh-cn.json','zh-tw.json','protoc','protoc-gen-go']
