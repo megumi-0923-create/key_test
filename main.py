@@ -2,6 +2,9 @@ import json
 import os
 import re
 import logging
+import chardet
+
+from function import *
 
 logging.basicConfig(
     filename='error.log',        # 日志文件名
@@ -10,36 +13,49 @@ logging.basicConfig(
 )
 
 
-path = r"D:\\p4_workspace\\Branch\\FF_RCT\\GGC"
+path = r"D:\p4_workspace\Branch\FF_RCT\GGC\public"
+# path_test=r'D:\p4_workspace\Branch\FF_RCT\GGC\public\Config\csv\UGCAnimStateChange.csv'
 
 content_program= ''
 content_csv=''
-ext_skip_test=['.bytes','.meta','.fab','.fbx','.library','.png','.DS_Store','.dll','.exe','.ico','.cur','.unityweb']
-dir_skip_test=['node_modules','packages','StreamingAssets']
+ext_skip_test=['.bytes','.meta','.fab','.fbx','.library','.png','.DS_Store','.dll','.exe','.ico','.cur','.unityweb','.package','.pdf','.jpg','.PNG','.zip','.bin','.js','.fcc']
+dir_skip_test=['node_modules','packages','StreamingAssets','GameApp_Beta','GameApp','EditorApp','ProjectTemplate']
+file_skip_test=['fe_loc-en.json','fe_loc-vi.json','fe_loc-zh-Hans.json','fe_loc-zh-Hant.json','en.json','vi.json','zh-cn.json','zh-tw.json']
+# ext_include_test=['.eca']
+ext_decode_type=['.eca','.gdvar','.mdc']
 
 for root, dirs, files in os.walk(path):
-    try:
-        dirs[:] = [d for d in dirs if d not in dir_skip_test]
+    dirs[:] = [d for d in dirs if d not in dir_skip_test]
+    #
+    for file in files:
+        print("=========")
+        print(root)
+        print(dirs)
+        print(file)
+        filepath = os.path.join(root, file)
 
-        for file in files:
-            print("=========")
-            print(root)
-            print(dirs)
-            print(file)
-            filepath = os.path.join(root, file)
-            name,ext=os.path.splitext(file)
-            if ext in ext_skip_test:
-                continue
-            elif ext != '.csv':
-                with open(filepath, 'r', encoding='utf-8') as f:
-                    content_program += f.read()
-            elif ext=='.csv':
-                with open(filepath, 'r', encoding='utf-8') as f:
-                    content_csv += f.read()
-            print("=========")
+        name,ext=os.path.splitext(file)
+        # ext_type.append(ext)
+        # 单独处理.eca文件
+        if ext not in ext_decode_type:
+            with open(filepath, "rb") as f:
+                rawdata = f.read(10000)
+                encoding_type = chardet.detect(rawdata)['encoding']
 
-    except Exception as e:
-        logging.error(e)
+        # print('----- ',ext)
+        if ext in ext_skip_test or file in file_skip_test or ext=='':
+            continue
+        elif ext=='.csv':
+            with open(filepath, 'r', encoding=encoding_type) as f:
+                content_csv += f.read()
+        elif ext in ext_decode_type:
+            content_program += decode_file(filepath)
+
+        else:
+            with open(filepath, 'r', encoding=encoding_type) as f:
+                content_program += f.read()
+        print("=========")
+
 
 pattern_program= r'["\']((?:FE_|T_)\w*)["\']'
 result_program=re.findall(pattern_program, content_program)
@@ -48,6 +64,9 @@ pattern_csv=r',((?:FE_|T_)\w*),'
 result_csv=re.findall(pattern_csv, content_csv)
 result=result_program+result_csv
 #列表去重
+
+# result=list(dict.fromkeys(ext_type))
+# print(result)
 result=list(dict.fromkeys(result))
 
 print(result)
