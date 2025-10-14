@@ -12,7 +12,8 @@ logging.basicConfig(
 
 path = r"D:\\p4_workspace\\Branch\\FF_RCT\\GGC"
 
-content=''
+content_program= ''
+content_csv=''
 ext_skip_test=['.bytes','.meta','.fab','.fbx','.library','.png','.DS_Store','.dll','.exe','.ico','.cur','.unityweb']
 dir_skip_test=['node_modules','packages','StreamingAssets']
 
@@ -29,15 +30,23 @@ for root, dirs, files in os.walk(path):
             name,ext=os.path.splitext(file)
             if ext in ext_skip_test:
                 continue
-            with open(filepath,'r',encoding='utf-8') as f:
-                content+=f.read()
+            elif ext != '.csv':
+                with open(filepath, 'r', encoding='utf-8') as f:
+                    content_program += f.read()
+            elif ext=='.csv':
+                with open(filepath, 'r', encoding='utf-8') as f:
+                    content_csv += f.read()
             print("=========")
 
     except Exception as e:
         logging.error(e)
 
-pattern=r'["\']((?:FE_|T_)\w*)["\']'
-result=re.findall(pattern,content)
+pattern_program= r'["\']((?:FE_|T_)\w*)["\']'
+result_program=re.findall(pattern_program, content_program)
+
+pattern_csv=r',((?:FE_|T_)\w*),'
+result_csv=re.findall(pattern_csv, content_csv)
+result=result_program+result_csv
 #列表去重
 result=list(dict.fromkeys(result))
 
