@@ -13,16 +13,19 @@ logging.basicConfig(
 )
 
 
-path = r"D:\p4_workspace\Branch\FF_RCT\GGC\public"
+path = r"D:\p4_workspace\Branch\FF_RCT\GGC\Tools"
 # path_test=r'D:\p4_workspace\Branch\FF_RCT\GGC\public\Config\csv\UGCAnimStateChange.csv'
 
 content_program= ''
 content_csv=''
-ext_skip_test=['.bytes','.meta','.fab','.fbx','.library','.png','.DS_Store','.dll','.exe','.ico','.cur','.unityweb','.package','.pdf','.jpg','.PNG','.zip','.bin','.js','.fcc']
+ext_skip_test=['.bytes','.meta','.fab','.fbx','.library','.png','.DS_Store','.dll','.exe','.ico','.cur','.unityweb',
+               '.package','.pdf','.jpg','.PNG','.zip','.bin','.js','.fcc','.tga','.FBX','.asset','.exr','.mmd','.ttc',
+               '.so','.tif','.cs','.ttf','.mmdb','.gif','.pdb','.ilk','.obj','.idb','.iobj']
+
 dir_skip_test=['node_modules','packages','StreamingAssets','GameApp_Beta','GameApp','EditorApp','ProjectTemplate']
-file_skip_test=['fe_loc-en.json','fe_loc-vi.json','fe_loc-zh-Hans.json','fe_loc-zh-Hant.json','en.json','vi.json','zh-cn.json','zh-tw.json']
+file_skip_test=['fe_loc-en.json','fe_loc-vi.json','fe_loc-zh-Hans.json','fe_loc-zh-Hant.json','en.json','vi.json','zh-cn.json','zh-tw.json','protoc','protoc-gen-go']
 # ext_include_test=['.eca']
-ext_decode_type=['.eca','.gdvar','.mdc']
+ext_decode_type=['.eca','.gdvar','.mdc','.cs','.json','.h']
 
 for root, dirs, files in os.walk(path):
     dirs[:] = [d for d in dirs if d not in dir_skip_test]
@@ -43,7 +46,7 @@ for root, dirs, files in os.walk(path):
                 encoding_type = chardet.detect(rawdata)['encoding']
 
         # print('----- ',ext)
-        if ext in ext_skip_test or file in file_skip_test or ext=='':
+        if ext in ext_skip_test or file in file_skip_test or ext=='' or 'Workshop' in file:
             continue
         elif ext=='.csv':
             with open(filepath, 'r', encoding=encoding_type) as f:
@@ -52,8 +55,12 @@ for root, dirs, files in os.walk(path):
             content_program += decode_file(filepath)
 
         else:
-            with open(filepath, 'r', encoding=encoding_type) as f:
-                content_program += f.read()
+            try:
+                with open(filepath, 'r', encoding=encoding_type) as f:
+                    content_program += f.read()
+            except UnicodeDecodeError:
+                with open(filepath, 'r', encoding='utf-8') as f:
+                    content_program += f.read()
         print("=========")
 
 
