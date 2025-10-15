@@ -3,114 +3,107 @@ import os
 import re
 import logging
 import chardet
+
 from function import *
 
 logging.basicConfig(
-    filename='error.log',
-    level=logging.ERROR,
+    filename='error.log',        # 日志文件名
+    level=logging.ERROR,         # 日志级别
     format='%(asctime)s - %(levelname)s - %(message)s'
 )
 
-# 扫描路径
-path = r"D:\P4\Branch\FF_RCT\GGC"
 
-# 初始化
-ext_skip_test = ['.bytes', '.meta', '.fab', '.fbx', '.library', '.png', '.DS_Store', '.dll', '.exe', '.ico', '.cur',
-                 '.unityweb', '.package', '.pdf', '.jpg', '.PNG', '.zip', '.bin', '.js', '.fcc', '.tga', '.FBX',
-                 '.asset', '.exr', '.mmd', '.ttc', '.so', '.tif', '.cs', '.ttf', '.mmdb', '.gif', '.pdb', '.ilk',
-                 '.obj', '.idb', '.iobj', '.ipdb', '.lib']
+path = r"D:\p4_workspace\Branch\FF_RCT\GGC"
+# path_test=r'D:\p4_workspace\Branch\FF_RCT\GGC\public\Config\csv\UGCAnimStateChange.csv'
 
-dir_skip_test = ['node_modules', 'packages', 'StreamingAssets', 'GameApp_Beta',
-                 'GameApp', 'EditorApp', 'ProjectTemplate','loc']
-file_skip_test = ['fe_loc-en.json', 'fe_loc-vi.json', 'fe_loc-zh-Hans.json',
-                  'fe_loc-zh-Hant.json', 'en.json', 'vi.json', 'zh-cn.json',
-                  'zh-tw.json', 'protoc', 'protoc-gen-go']
-ext_decode_type = ['.eca', '.gdvar', '.mdc', '.cs', '.json', '.h']
+content_program= ''
+content_csv=''
+ext_skip_test=['.bytes','.meta','.fab','.fbx','.library','.png','.DS_Store','.dll','.exe','.ico','.cur','.unityweb',
+               '.package','.pdf','.jpg','.PNG','.zip','.bin','.js','.fcc','.tga','.FBX','.asset','.exr','.mmd','.ttc',
+               '.so','.tif','.cs','.ttf','.mmdb','.gif','.pdb','.ilk','.obj','.idb','.iobj','.ipdb','.lib']
 
-key_source_map = {}   # { key: set([file1, file2]) }
+dir_skip_test=['node_modules','packages','StreamingAssets','GameApp_Beta','GameApp','EditorApp','ProjectTemplate']
+file_skip_test=['fe_loc-en.json','fe_loc-vi.json','fe_loc-zh-Hans.json','fe_loc-zh-Hant.json','en.json','vi.json','zh-cn.json','zh-tw.json','protoc','protoc-gen-go']
+# ext_include_test=['.eca']
+ext_decode_type=['.eca','.gdvar','.mdc','.cs','.json','.h']
 
-# ========= 遍历文件 =========
 for root, dirs, files in os.walk(path):
     dirs[:] = [d for d in dirs if d not in dir_skip_test]
-
+    #
     for file in files:
+        print("=========")
+        print(root)
+        print(dirs)
+        print(file)
         filepath = os.path.join(root, file)
-        name, ext = os.path.splitext(file)
 
-        if ext in ext_skip_test or file in file_skip_test or ext == '' or 'Workshop' in file:
-            continue
-
-        encoding_type = 'utf-8'
+        name,ext=os.path.splitext(file)
+        # ext_type.append(ext)
+        # 单独处理.eca文件
         if ext not in ext_decode_type:
             with open(filepath, "rb") as f:
                 rawdata = f.read(10000)
-                encoding_type = chardet.detect(rawdata)['encoding'] or 'utf-8'
+                encoding_type = chardet.detect(rawdata)['encoding']
 
-        try:
-            if ext == '.csv':
-                with open(filepath, 'r', encoding=encoding_type, errors='ignore') as f:
-                    for line in f:
-                        keys_in_line = re.findall(r'\b((?:FE_|T_)\w+)\b', line)
-                        for key in keys_in_line:
-                            key_source_map.setdefault(key, set()).add(filepath)
-                            print(f"[FOUND] {key}  ←  {filepath}")
-            elif ext in ext_decode_type:
-                text = decode_file(filepath)
-                keys_in_file = re.findall(r'\b((?:FE_|T_)\w+)\b', text)
-                for key in keys_in_file:
-                    key_source_map.setdefault(key, set()).add(filepath)
-                    print(f"[FOUND] {key}  ←  {filepath}")
-            else:
-                with open(filepath, 'r', encoding=encoding_type, errors='ignore') as f:
-                    for line in f:
-                        keys_in_line = re.findall(r'\b((?:FE_|T_)\w+)\b', line)
-                        for key in keys_in_line:
-                            key_source_map.setdefault(key, set()).add(filepath)
-                            print(f"[FOUND] {key}  ←  {filepath}")
-        except Exception as e:
-            logging.exception(f"读取文件失败: {filepath} - {e}")
+        # print('----- ',ext)
+        if ext in ext_skip_test or file in file_skip_test or ext=='' or 'Workshop' in file:
             continue
+        elif ext=='.csv':
+            with open(filepath, 'r', encoding=encoding_type) as f:
+                content_csv += f.read()
+        elif ext in ext_decode_type:
+            content_program += decode_file(filepath)
 
-# ========= 加载语言包 =========
-json_en_fe = r'D:\P4\Branch\FF_RCT\GGC\public\Config\loc\FE\fe_loc-en.json'
-json_en_ff = r'D:\P4\Branch\FF_RCT\GGC\public\Config\loc\FF\en.json'
+        else:
+            try:
+                with open(filepath, 'r', encoding=encoding_type) as f:
+                    content_program += f.read()
+            except UnicodeDecodeError:
+                with open(filepath, 'r', encoding='utf-8') as f:
+                    content_program += f.read()
+        print("=========")
 
-with open(json_en_fe, 'r', encoding='utf-8') as f:
-    data_fe = json.load(f)
-with open(json_en_ff, 'r', encoding='utf-8') as f:
-    data_ff = json.load(f)
 
-# ========= 输出所有找到的 key =========
-with open('all_found_keys.txt', 'w', encoding='utf-8') as f_all:
-    for key, files in key_source_map.items():
-        line = f"{key} | {'; '.join(sorted(files))}"
-        print(f"[ALL FOUND] {line}")
-        f_all.write(line + '\n')
+pattern_program= r'["\']((?:FE_|T_)\w*)["\']'
+result_program=re.findall(pattern_program, content_program)
 
-# ========= 比对 key 是否存在 =========
-existing_keys = []
-missing_keys = []
+pattern_csv=r',((?:FE_|T_)\w*),'
+result_csv=re.findall(pattern_csv, content_csv)
+result=result_program+result_csv
+#列表去重
 
-for key, files in key_source_map.items():
-    line = f"{key} | {'; '.join(sorted(files))}"
-    if key in data_fe or key in data_ff:
-        existing_keys.append(line)
-        print(f"[EXIST] {line}")
-    else:
-        missing_keys.append(line)
-        print(f"[MISSING] {line}")
+# result=list(dict.fromkeys(ext_type))
+# print(result)
+result=list(dict.fromkeys(result))
 
-# ========= 输出存在 key 文件 =========
-with open('existing_keys.txt', 'w', encoding='utf-8') as f_exist:
-    for line in existing_keys:
-        f_exist.write(line + '\n')
+print(result)
 
-# ========= 输出缺失 key 文件 =========
-with open('result_test2.txt', 'w', encoding='utf-8') as f_missing:
-    for line in missing_keys:
-        f_missing.write(line + '\n')
+json_en_fe=r'D:\p4_workspace\Branch\FF_RCT\GGC\public\Config\loc\FE\fe_loc-en.json'
+json_en_ff=r'D:\p4_workspace\Branch\FF_RCT\GGC\public\Config\loc\FF\en.json'
 
-print("\n扫描完成！")
-print("所有找到的 key → all_found_keys.txt")
-print("存在的 key → existing_keys.txt")
-print("缺失的 key → result_test2.txt")
+with open(json_en_fe,'r',encoding='utf-8') as f:
+    data_fe=json.load(f)
+with open(json_en_ff,'r',encoding='utf-8') as f:
+    data_ff=json.load(f)
+
+
+
+list_result=[]
+for key in result:
+    try:
+        if key in data_fe:
+            continue
+        elif key not in data_fe:
+            if key in data_ff:
+                continue
+            else:
+                list_result.append(key)
+        else:
+            logging.error(f'不知道啥情况出现的,key的名字是{key}')
+    except Exception as e:
+        logging.exception(e)
+
+print(list_result)
+with open('result_test2.txt','w',encoding='utf-8') as f:
+    for key in list_result:
+        f.write(key+'\n')
