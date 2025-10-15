@@ -1,0 +1,2 @@
+\GGC\Server\web\VersionConfig\rct\ReleaseNoteTemplate.csv
+\GGC\public\Config\csv\upgrade\ReleaseNote.csv
