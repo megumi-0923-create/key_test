@@ -77,3 +77,402 @@
 2025-10-14 17:10:59,470 - ERROR - 'utf-8' codec can't decode byte 0xb5 in position 4292: invalid start byte
 2025-10-14 17:11:22,038 - ERROR - 'utf-8' codec can't decode byte 0xe2 in position 10: invalid continuation byte
 2025-10-14 17:11:22,329 - ERROR - 'utf-8' codec can't decode byte 0x8b in position 18: invalid start byte
+2025-10-14 19:35:38,731 - ERROR - ��ȡ JSON ʧ��: D:\p4_workspace\Branch\FF_RCT\GGC\public\Config\loc\FE\fe_loc-en.json
+Traceback (most recent call last):
+  File "C:\Users\user\PycharmProjects\key_test\main.py", line 66, in load_json_safe
+    with open(json_path, 'r', encoding='utf-8') as f:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: 'D:\\p4_workspace\\Branch\\FF_RCT\\GGC\\public\\Config\\loc\\FE\\fe_loc-en.json'
+2025-10-14 19:35:38,735 - ERROR - ��ȡ JSON ʧ��: D:\p4_workspace\Branch\FF_RCT\GGC\public\Config\loc\FF\en.json
+Traceback (most recent call last):
+  File "C:\Users\user\PycharmProjects\key_test\main.py", line 66, in load_json_safe
+    with open(json_path, 'r', encoding='utf-8') as f:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: 'D:\\p4_workspace\\Branch\\FF_RCT\\GGC\\public\\Config\\loc\\FF\\en.json'
+2025-10-14 19:36:58,807 - ERROR - ��ȡ JSON ʧ��: D:\p4_workspace\Branch\FF_RCT\GGC\public\Config\loc\FE\fe_loc-en.json
+Traceback (most recent call last):
+  File "C:\Users\user\PycharmProjects\key_test\main.py", line 52, in load_json_safe
+    with open(json_path, 'r', encoding='utf-8') as f:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: 'D:\\p4_workspace\\Branch\\FF_RCT\\GGC\\public\\Config\\loc\\FE\\fe_loc-en.json'
+2025-10-14 19:36:58,810 - ERROR - ��ȡ JSON ʧ��: D:\p4_workspace\Branch\FF_RCT\GGC\public\Config\loc\FF\en.json
+Traceback (most recent call last):
+  File "C:\Users\user\PycharmProjects\key_test\main.py", line 52, in load_json_safe
+    with open(json_path, 'r', encoding='utf-8') as f:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: 'D:\\p4_workspace\\Branch\\FF_RCT\\GGC\\public\\Config\\loc\\FF\\en.json'
+2025-10-14 19:39:19,539 - ERROR - ��ȡ�ļ�ʧ��: D:\P4\Branch\FF_RCT\GGC\Server\fe-services\vendor\cloud.google.com\go\CHANGES.md
+Traceback (most recent call last):
+  File "C:\Users\user\PycharmProjects\key_test\main.py", line 49, in <module>
+    content_program += f.read()
+                       ^^^^^^^^
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.11_3.11.2544.0_x64__qbz5n2kfra8p0\Lib\encodings\ascii.py", line 26, in decode
+    return codecs.ascii_decode(input, self.errors)[0]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+UnicodeDecodeError: 'ascii' codec can't decode byte 0xe2 in position 11335: ordinal not in range(128)
+2025-10-14 19:39:22,867 - ERROR - ��ȡ�ļ�ʧ��: D:\P4\Branch\FF_RCT\GGC\Server\fe-services\vendor\github.com\google\go-cmp\cmp\options.go
+Traceback (most recent call last):
+  File "C:\Users\user\PycharmProjects\key_test\main.py", line 49, in <module>
+    content_program += f.read()
+                       ^^^^^^^^
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.11_3.11.2544.0_x64__qbz5n2kfra8p0\Lib\encodings\ascii.py", line 26, in decode
+    return codecs.ascii_decode(input, self.errors)[0]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+UnicodeDecodeError: 'ascii' codec can't decode byte 0xce in position 10598: ordinal not in range(128)
+2025-10-14 19:39:23,862 - ERROR - ��ȡ�ļ�ʧ��: D:\P4\Branch\FF_RCT\GGC\Server\fe-services\vendor\github.com\grpc-ecosystem\go-grpc-middleware\CONTRIBUTING.md
+Traceback (most recent call last):
+  File "C:\Users\user\PycharmProjects\key_test\main.py", line 49, in <module>
+    content_program += f.read()
+                       ^^^^^^^^
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.11_3.11.2544.0_x64__qbz5n2kfra8p0\Lib\encodings\cp1254.py", line 23, in decode
+    return codecs.charmap_decode(input,self.errors,decoding_table)[0]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+UnicodeDecodeError: 'charmap' codec can't decode byte 0x8d in position 133: character maps to <undefined>
+2025-10-14 19:39:38,536 - ERROR - ��ȡ�ļ�ʧ��: D:\P4\Branch\FF_RCT\GGC\Server\fe-services\vendor\golang.garena.com\coreservice\gopservice\api\protogop\coregop.pb.go
+Traceback (most recent call last):
+  File "C:\Users\user\PycharmProjects\key_test\main.py", line 49, in <module>
+    content_program += f.read()
+                       ^^^^^^^^
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.11_3.11.2544.0_x64__qbz5n2kfra8p0\Lib\encodings\ascii.py", line 26, in decode
+    return codecs.ascii_decode(input, self.errors)[0]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+UnicodeDecodeError: 'ascii' codec can't decode byte 0xe2 in position 108378: ordinal not in range(128)
+2025-10-14 19:39:45,907 - ERROR - ��ȡ�ļ�ʧ��: D:\P4\Branch\FF_RCT\GGC\Server\fe-services\vendor\golang.org\x\net\trace\trace.go
+Traceback (most recent call last):
+  File "C:\Users\user\PycharmProjects\key_test\main.py", line 49, in <module>
+    content_program += f.read()
+                       ^^^^^^^^
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.11_3.11.2544.0_x64__qbz5n2kfra8p0\Lib\encodings\ascii.py", line 26, in decode
+    return codecs.ascii_decode(input, self.errors)[0]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+UnicodeDecodeError: 'ascii' codec can't decode byte 0xe2 in position 18050: ordinal not in range(128)
+2025-10-14 19:39:59,020 - ERROR - ��ȡ�ļ�ʧ��: D:\P4\Branch\FF_RCT\GGC\Server\fe-services\vendor\golang.org\x\sys\windows\types_windows.go
+Traceback (most recent call last):
+  File "C:\Users\user\PycharmProjects\key_test\main.py", line 49, in <module>
+    content_program += f.read()
+                       ^^^^^^^^
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.11_3.11.2544.0_x64__qbz5n2kfra8p0\Lib\encodings\ascii.py", line 26, in decode
+    return codecs.ascii_decode(input, self.errors)[0]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+UnicodeDecodeError: 'ascii' codec can't decode byte 0xc2 in position 32804: ordinal not in range(128)
+2025-10-14 19:40:03,575 - ERROR - ��ȡ�ļ�ʧ��: D:\P4\Branch\FF_RCT\GGC\Server\fe-services\vendor\google.golang.org\api\storage\v1\storage-api.json
+Traceback (most recent call last):
+  File "C:\Users\user\PycharmProjects\key_test\main.py", line 49, in <module>
+    content_program += f.read()
+                       ^^^^^^^^
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.11_3.11.2544.0_x64__qbz5n2kfra8p0\Lib\encodings\ascii.py", line 26, in decode
+    return codecs.ascii_decode(input, self.errors)[0]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+UnicodeDecodeError: 'ascii' codec can't decode byte 0xe2 in position 188165: ordinal not in range(128)
+2025-10-14 19:40:03,585 - ERROR - ��ȡ�ļ�ʧ��: D:\P4\Branch\FF_RCT\GGC\Server\fe-services\vendor\google.golang.org\api\storage\v1\storage-gen.go
+Traceback (most recent call last):
+  File "C:\Users\user\PycharmProjects\key_test\main.py", line 49, in <module>
+    content_program += f.read()
+                       ^^^^^^^^
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.11_3.11.2544.0_x64__qbz5n2kfra8p0\Lib\encodings\ascii.py", line 26, in decode
+    return codecs.ascii_decode(input, self.errors)[0]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+UnicodeDecodeError: 'ascii' codec can't decode byte 0xe2 in position 94675: ordinal not in range(128)
+2025-10-14 19:40:07,834 - ERROR - ��ȡ�ļ�ʧ��: D:\P4\Branch\FF_RCT\GGC\Server\fe-services\vendor\google.golang.org\genproto\googleapis\storage\v2\storage.pb.go
+Traceback (most recent call last):
+  File "C:\Users\user\PycharmProjects\key_test\main.py", line 49, in <module>
+    content_program += f.read()
+                       ^^^^^^^^
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.11_3.11.2544.0_x64__qbz5n2kfra8p0\Lib\encodings\ascii.py", line 26, in decode
+    return codecs.ascii_decode(input, self.errors)[0]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+UnicodeDecodeError: 'ascii' codec can't decode byte 0xc2 in position 70903: ordinal not in range(128)
+2025-10-14 19:40:16,824 - ERROR - ��ȡ�ļ�ʧ��: D:\P4\Branch\FF_RCT\GGC\Server\fe-services\vendor\google.golang.org\protobuf\encoding\protowire\wire.go
+Traceback (most recent call last):
+  File "C:\Users\user\PycharmProjects\key_test\main.py", line 49, in <module>
+    content_program += f.read()
+                       ^^^^^^^^
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.11_3.11.2544.0_x64__qbz5n2kfra8p0\Lib\encodings\ascii.py", line 26, in decode
+    return codecs.ascii_decode(input, self.errors)[0]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+UnicodeDecodeError: 'ascii' codec can't decode byte 0xe2 in position 13135: ordinal not in range(128)
+2025-10-14 19:40:21,359 - ERROR - ��ȡ�ļ�ʧ��: D:\P4\Branch\FF_RCT\GGC\Server\fe-services\vendor\google.golang.org\protobuf\internal\impl\message_reflect.go
+Traceback (most recent call last):
+  File "C:\Users\user\PycharmProjects\key_test\main.py", line 49, in <module>
+    content_program += f.read()
+                       ^^^^^^^^
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.11_3.11.2544.0_x64__qbz5n2kfra8p0\Lib\encodings\ascii.py", line 26, in decode
+    return codecs.ascii_decode(input, self.errors)[0]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+UnicodeDecodeError: 'ascii' codec can't decode byte 0xe2 in position 10361: ordinal not in range(128)
+2025-10-14 19:40:25,902 - ERROR - ��ȡ�ļ�ʧ��: D:\P4\Branch\FF_RCT\GGC\Server\fe-services\vendor\gopkg.in\yaml.v2\scannerc.go
+Traceback (most recent call last):
+  File "C:\Users\user\PycharmProjects\key_test\main.py", line 49, in <module>
+    content_program += f.read()
+                       ^^^^^^^^
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.11_3.11.2544.0_x64__qbz5n2kfra8p0\Lib\encodings\ascii.py", line 26, in decode
+    return codecs.ascii_decode(input, self.errors)[0]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+UnicodeDecodeError: 'ascii' codec can't decode byte 0xe2 in position 25697: ordinal not in range(128)
+2025-10-14 19:42:59,344 - ERROR - ��ȡ�ļ�ʧ��: D:\P4\Branch\FF_RCT\GGC\Server\fe-services\vendor\cloud.google.com\go\CHANGES.md
+Traceback (most recent call last):
+  File "C:\Users\user\PycharmProjects\key_test\main.py", line 49, in <module>
+    content_program += f.read()
+                       ^^^^^^^^
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.11_3.11.2544.0_x64__qbz5n2kfra8p0\Lib\encodings\ascii.py", line 26, in decode
+    return codecs.ascii_decode(input, self.errors)[0]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+UnicodeDecodeError: 'ascii' codec can't decode byte 0xe2 in position 11335: ordinal not in range(128)
+2025-10-14 19:43:02,761 - ERROR - ��ȡ�ļ�ʧ��: D:\P4\Branch\FF_RCT\GGC\Server\fe-services\vendor\github.com\google\go-cmp\cmp\options.go
+Traceback (most recent call last):
+  File "C:\Users\user\PycharmProjects\key_test\main.py", line 49, in <module>
+    content_program += f.read()
+                       ^^^^^^^^
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.11_3.11.2544.0_x64__qbz5n2kfra8p0\Lib\encodings\ascii.py", line 26, in decode
+    return codecs.ascii_decode(input, self.errors)[0]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+UnicodeDecodeError: 'ascii' codec can't decode byte 0xce in position 10598: ordinal not in range(128)
+2025-10-14 19:43:03,734 - ERROR - ��ȡ�ļ�ʧ��: D:\P4\Branch\FF_RCT\GGC\Server\fe-services\vendor\github.com\grpc-ecosystem\go-grpc-middleware\CONTRIBUTING.md
+Traceback (most recent call last):
+  File "C:\Users\user\PycharmProjects\key_test\main.py", line 49, in <module>
+    content_program += f.read()
+                       ^^^^^^^^
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.11_3.11.2544.0_x64__qbz5n2kfra8p0\Lib\encodings\cp1254.py", line 23, in decode
+    return codecs.charmap_decode(input,self.errors,decoding_table)[0]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+UnicodeDecodeError: 'charmap' codec can't decode byte 0x8d in position 133: character maps to <undefined>
+2025-10-14 19:43:18,454 - ERROR - ��ȡ�ļ�ʧ��: D:\P4\Branch\FF_RCT\GGC\Server\fe-services\vendor\golang.garena.com\coreservice\gopservice\api\protogop\coregop.pb.go
+Traceback (most recent call last):
+  File "C:\Users\user\PycharmProjects\key_test\main.py", line 49, in <module>
+    content_program += f.read()
+                       ^^^^^^^^
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.11_3.11.2544.0_x64__qbz5n2kfra8p0\Lib\encodings\ascii.py", line 26, in decode
+    return codecs.ascii_decode(input, self.errors)[0]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+UnicodeDecodeError: 'ascii' codec can't decode byte 0xe2 in position 108378: ordinal not in range(128)
+2025-10-14 19:43:25,872 - ERROR - ��ȡ�ļ�ʧ��: D:\P4\Branch\FF_RCT\GGC\Server\fe-services\vendor\golang.org\x\net\trace\trace.go
+Traceback (most recent call last):
+  File "C:\Users\user\PycharmProjects\key_test\main.py", line 49, in <module>
+    content_program += f.read()
+                       ^^^^^^^^
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.11_3.11.2544.0_x64__qbz5n2kfra8p0\Lib\encodings\ascii.py", line 26, in decode
+    return codecs.ascii_decode(input, self.errors)[0]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+UnicodeDecodeError: 'ascii' codec can't decode byte 0xe2 in position 18050: ordinal not in range(128)
+2025-10-14 19:43:38,835 - ERROR - ��ȡ�ļ�ʧ��: D:\P4\Branch\FF_RCT\GGC\Server\fe-services\vendor\golang.org\x\sys\windows\types_windows.go
+Traceback (most recent call last):
+  File "C:\Users\user\PycharmProjects\key_test\main.py", line 49, in <module>
+    content_program += f.read()
+                       ^^^^^^^^
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.11_3.11.2544.0_x64__qbz5n2kfra8p0\Lib\encodings\ascii.py", line 26, in decode
+    return codecs.ascii_decode(input, self.errors)[0]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+UnicodeDecodeError: 'ascii' codec can't decode byte 0xc2 in position 32804: ordinal not in range(128)
+2025-10-14 19:43:43,198 - ERROR - ��ȡ�ļ�ʧ��: D:\P4\Branch\FF_RCT\GGC\Server\fe-services\vendor\google.golang.org\api\storage\v1\storage-api.json
+Traceback (most recent call last):
+  File "C:\Users\user\PycharmProjects\key_test\main.py", line 49, in <module>
+    content_program += f.read()
+                       ^^^^^^^^
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.11_3.11.2544.0_x64__qbz5n2kfra8p0\Lib\encodings\ascii.py", line 26, in decode
+    return codecs.ascii_decode(input, self.errors)[0]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+UnicodeDecodeError: 'ascii' codec can't decode byte 0xe2 in position 188165: ordinal not in range(128)
+2025-10-14 19:43:43,207 - ERROR - ��ȡ�ļ�ʧ��: D:\P4\Branch\FF_RCT\GGC\Server\fe-services\vendor\google.golang.org\api\storage\v1\storage-gen.go
+Traceback (most recent call last):
+  File "C:\Users\user\PycharmProjects\key_test\main.py", line 49, in <module>
+    content_program += f.read()
+                       ^^^^^^^^
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.11_3.11.2544.0_x64__qbz5n2kfra8p0\Lib\encodings\ascii.py", line 26, in decode
+    return codecs.ascii_decode(input, self.errors)[0]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+UnicodeDecodeError: 'ascii' codec can't decode byte 0xe2 in position 94675: ordinal not in range(128)
+2025-10-14 19:43:47,308 - ERROR - ��ȡ�ļ�ʧ��: D:\P4\Branch\FF_RCT\GGC\Server\fe-services\vendor\google.golang.org\genproto\googleapis\storage\v2\storage.pb.go
+Traceback (most recent call last):
+  File "C:\Users\user\PycharmProjects\key_test\main.py", line 49, in <module>
+    content_program += f.read()
+                       ^^^^^^^^
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.11_3.11.2544.0_x64__qbz5n2kfra8p0\Lib\encodings\ascii.py", line 26, in decode
+    return codecs.ascii_decode(input, self.errors)[0]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+UnicodeDecodeError: 'ascii' codec can't decode byte 0xc2 in position 70903: ordinal not in range(128)
+2025-10-14 19:43:55,977 - ERROR - ��ȡ�ļ�ʧ��: D:\P4\Branch\FF_RCT\GGC\Server\fe-services\vendor\google.golang.org\protobuf\encoding\protowire\wire.go
+Traceback (most recent call last):
+  File "C:\Users\user\PycharmProjects\key_test\main.py", line 49, in <module>
+    content_program += f.read()
+                       ^^^^^^^^
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.11_3.11.2544.0_x64__qbz5n2kfra8p0\Lib\encodings\ascii.py", line 26, in decode
+    return codecs.ascii_decode(input, self.errors)[0]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+UnicodeDecodeError: 'ascii' codec can't decode byte 0xe2 in position 13135: ordinal not in range(128)
+2025-10-14 19:44:00,343 - ERROR - ��ȡ�ļ�ʧ��: D:\P4\Branch\FF_RCT\GGC\Server\fe-services\vendor\google.golang.org\protobuf\internal\impl\message_reflect.go
+Traceback (most recent call last):
+  File "C:\Users\user\PycharmProjects\key_test\main.py", line 49, in <module>
+    content_program += f.read()
+                       ^^^^^^^^
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.11_3.11.2544.0_x64__qbz5n2kfra8p0\Lib\encodings\ascii.py", line 26, in decode
+    return codecs.ascii_decode(input, self.errors)[0]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+UnicodeDecodeError: 'ascii' codec can't decode byte 0xe2 in position 10361: ordinal not in range(128)
+2025-10-14 19:44:04,778 - ERROR - ��ȡ�ļ�ʧ��: D:\P4\Branch\FF_RCT\GGC\Server\fe-services\vendor\gopkg.in\yaml.v2\scannerc.go
+Traceback (most recent call last):
+  File "C:\Users\user\PycharmProjects\key_test\main.py", line 49, in <module>
+    content_program += f.read()
+                       ^^^^^^^^
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.11_3.11.2544.0_x64__qbz5n2kfra8p0\Lib\encodings\ascii.py", line 26, in decode
+    return codecs.ascii_decode(input, self.errors)[0]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+UnicodeDecodeError: 'ascii' codec can't decode byte 0xe2 in position 25697: ordinal not in range(128)
+2025-10-14 19:50:10,474 - ERROR - �ļ���ȡʧ��: D:\P4\Branch\FF_RCT\GGC\Server\fe-services\vendor\github.com\buger\jsonparser\go.sum
+Traceback (most recent call last):
+  File "C:\Users\user\PycharmProjects\key_test\main.py", line 41, in <module>
+    raise ValueError("������ʧ��")
+ValueError: ������ʧ��
+2025-10-14 19:50:10,542 - ERROR - �ļ���ȡʧ��: D:\P4\Branch\FF_RCT\GGC\Server\fe-services\vendor\github.com\cespare\xxhash\v2\go.sum
+Traceback (most recent call last):
+  File "C:\Users\user\PycharmProjects\key_test\main.py", line 41, in <module>
+    raise ValueError("������ʧ��")
+ValueError: ������ʧ��
+2025-10-14 19:50:10,852 - ERROR - �ļ���ȡʧ��: D:\P4\Branch\FF_RCT\GGC\Server\fe-services\vendor\github.com\felixge\httpsnoop\.gitignore
+Traceback (most recent call last):
+  File "C:\Users\user\PycharmProjects\key_test\main.py", line 41, in <module>
+    raise ValueError("������ʧ��")
+ValueError: ������ʧ��
+2025-10-14 19:50:15,172 - ERROR - �ļ���ȡʧ��: D:\P4\Branch\FF_RCT\GGC\Server\fe-services\vendor\github.com\grpc-ecosystem\go-grpc-middleware\CONTRIBUTING.md
+Traceback (most recent call last):
+  File "C:\Users\user\PycharmProjects\key_test\main.py", line 43, in <module>
+    text = rawdata.decode(encoding_type)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.11_3.11.2544.0_x64__qbz5n2kfra8p0\Lib\encodings\cp1254.py", line 15, in decode
+    return codecs.charmap_decode(input,errors,decoding_table)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+UnicodeDecodeError: 'charmap' codec can't decode byte 0x8d in position 133: character maps to <undefined>
+2025-10-14 19:50:23,114 - ERROR - �ļ���ȡʧ��: D:\P4\Branch\FF_RCT\GGC\Server\fe-services\vendor\github.com\spf13\pflag\go.sum
+Traceback (most recent call last):
+  File "C:\Users\user\PycharmProjects\key_test\main.py", line 41, in <module>
+    raise ValueError("������ʧ��")
+ValueError: ������ʧ��
+2025-10-14 19:50:24,812 - ERROR - �ļ���ȡʧ��: D:\P4\Branch\FF_RCT\GGC\Server\fe-services\vendor\github.com\uber\jaeger-client-go\thrift\.nocover
+Traceback (most recent call last):
+  File "C:\Users\user\PycharmProjects\key_test\main.py", line 41, in <module>
+    raise ValueError("������ʧ��")
+ValueError: ������ʧ��
+2025-10-14 19:50:40,419 - ERROR - �ļ���ȡʧ��: D:\P4\Branch\FF_RCT\GGC\Server\fe-services\vendor\golang.garena.com\rum-go\go.sum
+Traceback (most recent call last):
+  File "C:\Users\user\PycharmProjects\key_test\main.py", line 41, in <module>
+    raise ValueError("������ʧ��")
+ValueError: ������ʧ��
+2025-10-14 19:50:42,667 - ERROR - �ļ���ȡʧ��: D:\P4\Branch\FF_RCT\GGC\Server\fe-services\vendor\golang.org\x\net\idna\tables10.0.0.go
+Traceback (most recent call last):
+  File "C:\Users\user\PycharmProjects\key_test\main.py", line 43, in <module>
+    text = rawdata.decode(encoding_type)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.11_3.11.2544.0_x64__qbz5n2kfra8p0\Lib\encodings\cp1254.py", line 15, in decode
+    return codecs.charmap_decode(input,errors,decoding_table)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+UnicodeDecodeError: 'charmap' codec can't decode byte 0x81 in position 377: character maps to <undefined>
+2025-10-14 19:50:43,268 - ERROR - �ļ���ȡʧ��: D:\P4\Branch\FF_RCT\GGC\Server\fe-services\vendor\golang.org\x\net\idna\tables11.0.0.go
+Traceback (most recent call last):
+  File "C:\Users\user\PycharmProjects\key_test\main.py", line 43, in <module>
+    text = rawdata.decode(encoding_type)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.11_3.11.2544.0_x64__qbz5n2kfra8p0\Lib\encodings\cp1254.py", line 15, in decode
+    return codecs.charmap_decode(input,errors,decoding_table)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+UnicodeDecodeError: 'charmap' codec can't decode byte 0x81 in position 377: character maps to <undefined>
+2025-10-14 19:50:43,871 - ERROR - �ļ���ȡʧ��: D:\P4\Branch\FF_RCT\GGC\Server\fe-services\vendor\golang.org\x\net\idna\tables12.0.0.go
+Traceback (most recent call last):
+  File "C:\Users\user\PycharmProjects\key_test\main.py", line 43, in <module>
+    text = rawdata.decode(encoding_type)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.11_3.11.2544.0_x64__qbz5n2kfra8p0\Lib\encodings\cp1254.py", line 15, in decode
+    return codecs.charmap_decode(input,errors,decoding_table)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+UnicodeDecodeError: 'charmap' codec can't decode byte 0x81 in position 377: character maps to <undefined>
+2025-10-14 19:50:44,477 - ERROR - �ļ���ȡʧ��: D:\P4\Branch\FF_RCT\GGC\Server\fe-services\vendor\golang.org\x\net\idna\tables13.0.0.go
+Traceback (most recent call last):
+  File "C:\Users\user\PycharmProjects\key_test\main.py", line 43, in <module>
+    text = rawdata.decode(encoding_type)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.11_3.11.2544.0_x64__qbz5n2kfra8p0\Lib\encodings\cp1254.py", line 15, in decode
+    return codecs.charmap_decode(input,errors,decoding_table)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+UnicodeDecodeError: 'charmap' codec can't decode byte 0x81 in position 358: character maps to <undefined>
+2025-10-14 19:50:45,052 - ERROR - �ļ���ȡʧ��: D:\P4\Branch\FF_RCT\GGC\Server\fe-services\vendor\golang.org\x\net\idna\tables9.0.0.go
+Traceback (most recent call last):
+  File "C:\Users\user\PycharmProjects\key_test\main.py", line 43, in <module>
+    text = rawdata.decode(encoding_type)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.11_3.11.2544.0_x64__qbz5n2kfra8p0\Lib\encodings\cp1254.py", line 15, in decode
+    return codecs.charmap_decode(input,errors,decoding_table)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+UnicodeDecodeError: 'charmap' codec can't decode byte 0x81 in position 359: character maps to <undefined>
+2025-10-14 19:54:08,351 - ERROR - �ļ���ȡʧ��: D:\P4\Branch\FF_RCT\GGC\src\assets\ikons\gif\loading.gif
+Traceback (most recent call last):
+  File "C:\Users\user\PycharmProjects\key_test\main.py", line 41, in <module>
+    raise ValueError("������ʧ��")
+ValueError: ������ʧ��
+2025-10-14 19:54:12,289 - ERROR - �ļ���ȡʧ��: D:\P4\Branch\FF_RCT\GGC\src\components\Inspector\dynamicWidgets.ts
+Traceback (most recent call last):
+  File "C:\Users\user\PycharmProjects\key_test\main.py", line 41, in <module>
+    raise ValueError("������ʧ��")
+ValueError: ������ʧ��
+2025-10-14 19:54:14,248 - ERROR - �ļ���ȡʧ��: D:\P4\Branch\FF_RCT\GGC\src\components\ModificationMananger\components\index.ts
+Traceback (most recent call last):
+  File "C:\Users\user\PycharmProjects\key_test\main.py", line 41, in <module>
+    raise ValueError("������ʧ��")
+ValueError: ������ʧ��
+2025-10-14 19:54:15,878 - ERROR - �ļ���ȡʧ��: D:\P4\Branch\FF_RCT\GGC\src\components\modules\SelectTree\NodeBase.ts
+Traceback (most recent call last):
+  File "C:\Users\user\PycharmProjects\key_test\main.py", line 41, in <module>
+    raise ValueError("������ʧ��")
+ValueError: ������ʧ��
+2025-10-14 19:54:18,685 - ERROR - �ļ���ȡʧ��: D:\P4\Branch\FF_RCT\GGC\src\extensions\AIGC\AIGCExtInstaller.ts
+Traceback (most recent call last):
+  File "C:\Users\user\PycharmProjects\key_test\main.py", line 41, in <module>
+    raise ValueError("������ʧ��")
+ValueError: ������ʧ��
+2025-10-14 19:54:19,408 - ERROR - �ļ���ȡʧ��: D:\P4\Branch\FF_RCT\GGC\src\extensions\BatchUploadStore\ExtensionRelies.ts
+Traceback (most recent call last):
+  File "C:\Users\user\PycharmProjects\key_test\main.py", line 41, in <module>
+    raise ValueError("������ʧ��")
+ValueError: ������ʧ��
+2025-10-14 19:54:20,285 - ERROR - �ļ���ȡʧ��: D:\P4\Branch\FF_RCT\GGC\src\extensions\FF\build\ExportUIEntityData.ts
+Traceback (most recent call last):
+  File "C:\Users\user\PycharmProjects\key_test\main.py", line 41, in <module>
+    raise ValueError("������ʧ��")
+ValueError: ������ʧ��
+2025-10-14 19:54:20,367 - ERROR - �ļ���ȡʧ��: D:\P4\Branch\FF_RCT\GGC\src\extensions\FF\build\GetUniqueWidgetIdByUI.ts
+Traceback (most recent call last):
+  File "C:\Users\user\PycharmProjects\key_test\main.py", line 41, in <module>
+    raise ValueError("������ʧ��")
+ValueError: ������ʧ��
+2025-10-14 19:54:40,137 - ERROR - �ļ���ȡʧ��: D:\P4\Branch\FF_RCT\GGC\src\ts\scene\SceneEmptyEntity.ts
+Traceback (most recent call last):
+  File "C:\Users\user\PycharmProjects\key_test\main.py", line 41, in <module>
+    raise ValueError("������ʧ��")
+ValueError: ������ʧ��
+2025-10-14 19:54:41,715 - ERROR - �ļ���ȡʧ��: D:\P4\Branch\FF_RCT\GGC\src\ts\search\ISearchModule.ts
+Traceback (most recent call last):
+  File "C:\Users\user\PycharmProjects\key_test\main.py", line 43, in <module>
+    text = rawdata.decode(encoding_type)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.11_3.11.2544.0_x64__qbz5n2kfra8p0\Lib\encodings\cp1254.py", line 15, in decode
+    return codecs.charmap_decode(input,errors,decoding_table)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+UnicodeDecodeError: 'charmap' codec can't decode byte 0x90 in position 2248: character maps to <undefined>
+2025-10-14 21:44:05,671 - ERROR - 'utf-8' codec can't decode byte 0xe0 in position 48: invalid continuation byte
+2025-10-14 21:44:05,673 - ERROR - 'utf-8' codec can't decode byte 0xf4 in position 48: invalid continuation byte
+2025-10-14 21:44:05,675 - ERROR - 'utf-8' codec can't decode byte 0xf4 in position 48: invalid continuation byte
+2025-10-14 21:44:05,677 - ERROR - 'utf-8' codec can't decode byte 0xe4 in position 48: invalid continuation byte
+2025-10-14 21:44:05,678 - ERROR - 'utf-8' codec can't decode byte 0xfb in position 106: invalid start byte
+2025-10-14 21:44:05,679 - ERROR - 'utf-8' codec can't decode byte 0xf6 in position 106: invalid start byte
+2025-10-14 21:44:05,681 - ERROR - 'utf-8' codec can't decode byte 0xba in position 11109: invalid start byte
+2025-10-14 21:44:09,081 - ERROR - 'utf-8' codec can't decode byte 0xff in position 2: invalid start byte
+2025-10-14 21:44:11,145 - ERROR - 'utf-8' codec can't decode byte 0xa0 in position 32: invalid start byte
+2025-10-14 21:44:11,164 - ERROR - 'utf-8' codec can't decode byte 0xff in position 0: invalid start byte
+2025-10-14 21:44:11,251 - ERROR - 'utf-8' codec can't decode byte 0x86 in position 1: invalid start byte
+2025-10-14 21:44:11,254 - ERROR - 'utf-8' codec can't decode byte 0xff in position 0: invalid start byte
+2025-10-14 21:44:14,877 - ERROR - 'utf-8' codec can't decode byte 0xf9 in position 74: invalid start byte
+2025-10-14 21:44:15,010 - ERROR - 'utf-8' codec can't decode byte 0x84 in position 70: invalid start byte
+2025-10-14 21:44:15,023 - ERROR - 'utf-8' codec can't decode byte 0x8e in position 75: invalid start byte
+2025-10-14 21:44:15,023 - ERROR - 'utf-8' codec can't decode byte 0xf6 in position 75: invalid start byte
+2025-10-14 21:44:15,103 - ERROR - 'utf-8' codec can't decode byte 0x81 in position 73: invalid start byte
+2025-10-14 21:44:15,131 - ERROR - 'utf-8' codec can't decode byte 0xdd in position 71: invalid continuation byte
+2025-10-14 21:44:15,134 - ERROR - 'utf-8' codec can't decode byte 0xde in position 99: invalid continuation byte
+2025-10-14 21:44:15,134 - ERROR - 'utf-8' codec can't decode byte 0x96 in position 71: invalid start byte
+2025-10-14 21:44:15,135 - ERROR - 'utf-8' codec can't decode byte 0x86 in position 1: invalid start byte
