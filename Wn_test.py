@@ -25,7 +25,7 @@ ext_skip_test = ['.bytes', '.meta', '.fab', '.fbx', '.library', '.png', '.DS_Sto
                  '.obj', '.idb', '.iobj', '.ipdb', '.lib']
 
 dir_skip_test = ['node_modules', 'packages', 'StreamingAssets', 'GameApp_Beta',
-                 'GameApp', 'EditorApp','loc','Loc','ShareLoc2','ShareLoc']
+                 'GameApp', 'EditorApp','loc','Loc','ShareLoc2','ShareLoc','Server']
 
 file_skip_test = ['fe_loc-en.json', 'fe_loc-vi.json', 'fe_loc-zh-Hans.json',
                   'fe_loc-zh-Hant.json', 'en.json', 'vi.json', 'zh-cn.json',
@@ -37,7 +37,7 @@ key_source_map = {}   # { key: set([file1, file2]) }
 
 # ===== 遍历文件 =====
 #非版本更新所用的key,即FE_或者T_开头
-pattern_not_upgrade=r'(?:FE_|T_)\d[\w]*(?:_[\w]+)*'
+pattern_not_upgrade=r'(?<![A-Za-z0-9_])(?:FE_|T_)\d+_[\w]*(?:_[\w]+)*'
 #版本更新所用的key,即OB_开头
 pattern_upgrade=r'OB_[\w]+(?:_[\w]+)*'
 
