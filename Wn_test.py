@@ -25,7 +25,7 @@ ext_skip_test = ['.bytes', '.meta', '.fab', '.fbx', '.library', '.png', '.DS_Sto
                  '.obj', '.idb', '.iobj', '.ipdb', '.lib']
 
 dir_skip_test = ['node_modules', 'packages', 'StreamingAssets', 'GameApp_Beta',
-                 'GameApp', 'EditorApp','loc','Loc','ShareLoc2','ShareLoc','Server']
+                 'GameApp', 'EditorApp','loc','Loc','ShareLoc2','ShareLoc','Server','UGCTemplateMap']
 
 file_skip_test = ['fe_loc-en.json', 'fe_loc-vi.json', 'fe_loc-zh-Hans.json',
                   'fe_loc-zh-Hant.json', 'en.json', 'vi.json', 'zh-cn.json',
@@ -37,7 +37,7 @@ key_source_map = {}   # { key: set([file1, file2]) }
 
 # ===== 遍历文件 =====
 #非版本更新所用的key,即FE_或者T_开头
-pattern_not_upgrade=r'(?<![A-Za-z0-9_])(?:FE_|T_)\d+_[\w]*(?:_[\w]+)*'
+pattern_not_upgrade=r'(?<![A-Za-z0-9_])(?:FE_|T_)\d+_[A-Za-z0-9_-]*(?:_[A-Za-z0-9_-]+)*'
 #版本更新所用的key,即OB_开头
 pattern_upgrade=r'OB_[\w]+(?:_[\w]+)*'
 
@@ -90,6 +90,7 @@ with open('csv_file_total.txt','r',encoding='utf-8') as f:
     for line in f:
         line=line.strip('\n')
         csv_file_total_list.append(path_branch+line)
+
 with open('csv_file_upgrade.txt','r',encoding='utf-8') as f:
     for line in f:
         line=line.strip('\n')
@@ -97,11 +98,32 @@ with open('csv_file_upgrade.txt','r',encoding='utf-8') as f:
 
 for file in csv_file_total_list:
     with open(file, 'r', encoding='utf-8', errors='ignore') as f:
-        for line in f:
-            keys_in_line = re.findall(pattern_not_upgrade, line)
-            for key in keys_in_line:
-                key_source_map.setdefault(key, set()).add(file)
-                print(f"[FOUND] {key} | {file}")
+        # for line in f:
+        #     keys_in_line = re.findall(pattern_not_upgrade, line)
+        #     for key in keys_in_line:
+        #         key_source_map.setdefault(key, set()).add(file)
+        #         print(f"[FOUND] {key} | {file}")
+        reader=csv.DictReader(f)
+        if 'FEShowControl' in reader.fieldnames:
+            for row in reader:
+                fe_value = row.get('FEShowControl', '').strip().upper()  # 防止大小写不一致
+                if fe_value == 'FALSE':
+                    continue
+                line_str = ','.join(row.values())
+                keys_in_line = re.findall(pattern_not_upgrade, line_str)
+                for key in keys_in_line:
+                    key_source_map.setdefault(key, set()).add(file)
+                    print(f"[FOUND] {key} | {file}")
+
+
+        else:
+            f.seek(0)
+            next(f)  # 跳过表头行
+            for line in f:
+                keys_in_line = re.findall(pattern_not_upgrade, line)
+                for key in keys_in_line:
+                    key_source_map.setdefault(key, set()).add(file)
+                    print(f"[FOUND] {key} | {file}")
 
 for file in csv_file_upgrade_list:
     with open(file, 'r', encoding='utf-8', errors='ignore') as f:
