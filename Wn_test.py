@@ -4,7 +4,7 @@ import re
 import logging
 import chardet
 from function import *  # 确保 decode_file 函数在 function.py 中
-
+from datetime import datetime
 import csv
 
 # ===== 日志配置 =====
@@ -34,6 +34,8 @@ file_skip_test = ['fe_loc-en.json', 'fe_loc-vi.json', 'fe_loc-zh-Hans.json',
 ext_decode_type = ['.eca', '.gdvar', '.mdc', '.cs', '.json', '.h']
 
 key_source_map = {}   # { key: set([file1, file2]) }
+
+skip_key=['FE_0_B_PGC_INTERNAL_WITH_TEMPLATE','FE_0_F_PROJECT_CLOSE_2','FE_0_HW_GAME_EDITOR_INTERNALSETTING','FE_47_PERSONANAME']
 
 # ===== 遍历文件 =====
 #非版本更新所用的key,即FE_或者T_开头
@@ -152,19 +154,22 @@ missing_rows = []
 
 for key in sorted(key_source_map.keys()):  # 按 key 排序
     files = sorted(key_source_map[key])    # 去重并排序文件路径
-    for file in files:
-        all_rows.append([key, file])
-        if key in data_fe or key in data_ff:
-            existing_rows.append([key, file])
-            print(f"[EXIST] {key} | {file}")
-        else:
-            missing_rows.append([key, file])
-            print(f"[MISSING] {key} | {file}")
+    if key not in skip_key:
+        for file in files:
+            all_rows.append([key, file])
+            if key in data_fe or key in data_ff:
+                existing_rows.append([key, file])
+                print(f"[EXIST] {key} | {file}")
+            else:
+                missing_rows.append([key, file])
+                print(f"[MISSING] {key} | {file}")
 
 # ===== 输出 CSV =====
+now_str = datetime.now().strftime("%Y-%m-%d-%H_%M_%S")
+result_file='result_test/result_test2_'+now_str+'.csv'
 write_csv('all_found_keys.csv', all_rows)
 write_csv('existing_keys.csv', existing_rows)
-write_csv('result_test2.csv', missing_rows)
+write_csv(result_file, missing_rows)
 
 print("\n扫描完成！")
 print("所有找到的 key → all_found_keys.csv")

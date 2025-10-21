@@ -25,8 +25,6 @@ FE_0_B_ENSURE_CLOSE_PUBLISH,D:\p4_workspace\Branch\FF_RCT\GGC\src\components\Rel
 FE_0_B_PGC_IN,D:\p4_workspace\Branch\FF_RCT\GGC\src\components\TopBar\RunDashboard.vue
 FE_0_B_PGC_INTERNAL,D:\p4_workspace\Branch\FF_RCT\GGC\src\components\ResourceStores\MyAssetImportDialog.vue
 FE_0_B_PGC_INTERNAL,D:\p4_workspace\Branch\FF_RCT\GGC\src\components\dashboard\projectsManage.vue
-FE_0_B_PGC_INTERNAL_WITH_TEMPLATE,D:\p4_workspace\Branch\FF_RCT\GGC\src\components\ResourceStores\MyAssetImportDialog.vue
-FE_0_B_PGC_INTERNAL_WITH_TEMPLATE,D:\p4_workspace\Branch\FF_RCT\GGC\src\components\dashboard\projectsManage.vue
 FE_0_B_POINT_ADD,D:\p4_workspace\Branch\FF_RCT\GGC\src\ts\eca\contextMenu.ts
 FE_0_B_POINT_ADD,D:\p4_workspace\Branch\FF_RCT\GGC\src\ts\gameDebug\blockly\contextMenu.ts
 FE_0_B_POINT_CLEAR,D:\p4_workspace\Branch\FF_RCT\GGC\src\ts\eca\contextMenu.ts
@@ -262,7 +260,6 @@ FE_0_F_PROJECT_BIND,D:\p4_workspace\Branch\FF_RCT\GGC\src\components\Login\binda
 FE_0_F_PROJECT_BIND,D:\p4_workspace\Branch\FF_RCT\GGC\src\components\dashboard\views\myProfile.vue
 FE_0_F_PROJECT_CLOSE,D:\p4_workspace\Branch\FF_RCT\GGC\src\components\Login\login.vue
 FE_0_F_PROJECT_CLOSE,D:\p4_workspace\Branch\FF_RCT\GGC\src\components\TopBar\TopBar.vue
-FE_0_F_PROJECT_CLOSE_2,D:\p4_workspace\Branch\FF_RCT\GGC\src\components\dashboard\dashboard.vue
 FE_0_F_PROJECT_DECREMENT,D:\p4_workspace\Branch\FF_RCT\GGC\src\components\AssetsViewer\AssetsBar.vue
 FE_0_F_PROJECT_DELETE_LOCAL,D:\p4_workspace\Branch\FF_RCT\GGC\src\components\dashboard\views\deleteProject.vue
 FE_0_F_PROJECT_DELETE_TITLE,D:\p4_workspace\Branch\FF_RCT\GGC\src\components\dashboard\views\deleteProject.vue
@@ -735,8 +732,6 @@ FE_0_HW_GAME_EDITOR_INSPECT_TITLE_BASIC,D:\p4_workspace\Branch\FF_RCT\GGC\src\ex
 FE_0_HW_GAME_EDITOR_INSPECT_TITLE_BASIC,D:\p4_workspace\Branch\FF_RCT\GGC\src\extensions\FF\modifications\player\Entity.ts
 FE_0_HW_GAME_EDITOR_INSPECT_TITLE_SKILL,D:\p4_workspace\Branch\FF_RCT\GGC\src\extensions\FF\entitySettings\PlayerSetting.ts
 FE_0_HW_GAME_EDITOR_INSPECT_TITLE_SKILL,D:\p4_workspace\Branch\FF_RCT\GGC\src\extensions\FF\modifications\mechanism\Entity.ts
-FE_0_HW_GAME_EDITOR_INTERNALSETTING,D:\p4_workspace\Branch\FF_RCT\GGC\src\extensions\FF\modifications\common.ts
-FE_0_HW_GAME_EDITOR_INTERNALSETTING,D:\p4_workspace\Branch\FF_RCT\GGC\src\extensions\FF\workflow\WorkflowEntity.ts
 FE_0_HW_GAME_EDITOR_PLAYERSETTING,D:\p4_workspace\Branch\FF_RCT\GGC\src\extensions\FF\entitySettings\PlayerSetting.ts
 FE_0_HW_GAME_EDITOR_PLAYERSETTING,D:\p4_workspace\Branch\FF_RCT\GGC\src\extensions\FF\modifications\common.ts
 FE_0_HW_GAME_EDITOR_PLAYERSETTING,D:\p4_workspace\Branch\FF_RCT\GGC\src\extensions\FF\workflow\WorkflowEntity.ts
@@ -3066,7 +3061,6 @@ FE_47_HZY_UI_TEXTURE_D,D:\p4_workspace\Branch\FF_RCT\GGC\src\components\Editor\U
 FE_47_HZY_UI_TEXT_D,D:\p4_workspace\Branch\FF_RCT\GGC\src\components\Editor\UIViewer\Graph\constant.ts
 FE_47_HZY_UI_TOGGLE_D,D:\p4_workspace\Branch\FF_RCT\GGC\src\components\Editor\UIViewer\Graph\constant.ts
 FE_47_HZY_UI_TOUCHPAD_D,D:\p4_workspace\Branch\FF_RCT\GGC\src\components\Editor\UIViewer\Graph\constant.ts
-FE_47_PERSONANAME,D:\p4_workspace\Branch\FF_RCT\GGC\src\ts\persona\PersonaModule.ts
 FE_47_TYC_ANIM_BLEND_TIME,D:\p4_workspace\Branch\FF_RCT\GGC\src\ts\animation\ACClipEntity.ts
 FE_47_TYC_ANIM_BLEND_TIME,D:\p4_workspace\Branch\FF_RCT\GGC\src\ts\timeline\types\class\AlongPathItem.ts
 FE_47_TYC_ANIM_BLEND_TIME,D:\p4_workspace\Branch\FF_RCT\GGC\src\ts\timeline\types\class\AnimClipItem.ts
