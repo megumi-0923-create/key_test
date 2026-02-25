@@ -23,10 +23,10 @@ path=path_branch+r'\GGC'
 ext_skip_test = ['.bytes', '.meta', '.fab', '.fbx', '.library', '.png', '.DS_Store', '.dll', '.exe', '.ico', '.cur',
                  '.unityweb', '.package', '.pdf', '.jpg', '.PNG', '.zip', '.bin', '.js', '.fcc', '.tga', '.FBX',
                  '.asset', '.exr', '.mmd', '.ttc', '.so', '.tif', '.cs', '.ttf', '.mmdb', '.gif', '.pdb', '.ilk',
-                 '.obj', '.idb', '.iobj', '.ipdb', '.lib']
+                 '.obj', '.idb', '.iobj', '.ipdb', '.lib','.respck']
 
 dir_skip_test = ['node_modules', 'packages', 'StreamingAssets', 'GameApp_Beta',
-                 'GameApp', 'EditorApp','loc','Loc','ShareLoc2','ShareLoc','Server','UGCTemplateMap']
+                 'GameApp', 'EditorApp','loc','Loc','ShareLoc2','ShareLoc','Server','UGCTemplateMap','fe-blockly-web']
 
 file_skip_test = ['fe_loc-en.json', 'fe_loc-vi.json', 'fe_loc-zh-Hans.json',
                   'fe_loc-zh-Hant.json', 'en.json', 'vi.json', 'zh-cn.json',
@@ -36,11 +36,26 @@ ext_decode_type = ['.eca', '.gdvar', '.mdc', '.cs', '.json', '.h']
 
 key_source_map = {}   # { key: set([file1, file2]) }
 
-skip_key=['FE_0_B_PGC_INTERNAL_WITH_TEMPLATE','FE_0_F_PROJECT_CLOSE_2','FE_0_HW_GAME_EDITOR_INTERNALSETTING','FE_47_PERSONANAME']
+skip_key=['FE_0_B_PGC_INTERNAL_WITH_TEMPLATE','FE_0_F_PROJECT_CLOSE_2','FE_0_HW_GAME_EDITOR_INTERNALSETTING','FE_47_PERSONANAME','T_45_HL_Moderation_fail']
 
 # ===== 遍历文件 =====
 #非版本更新所用的key,即FE_或者T_开头
-pattern_not_upgrade=r'(?<![A-Za-z0-9_])(?:FE_|T_)\d+_[A-Za-z0-9_-]*(?:_[A-Za-z0-9_-]+)*'
+# pattern_not_upgrade=r'(?<![A-Za-z0-9_])(?:FE_|T_)\d+_[A-Za-z0-9_-]*(?:_[A-Za-z0-9_-]+)*'
+pattern_not_upgrade = r'''
+(?<![A-Za-z0-9_])(?:
+    # 裸 key：不允许结尾空格，遇到符号即停,例如:T_40_WZY_WS_FONT_NOTOSANS
+    ((?:FE_|T_)\d+_[^\s=#$%()'`,;\.]+(?:\s+\d+)*)(?<![,;.\'"`])
+  |
+    # 单引号：允许结尾空格,例如'T_40_WZY_WS_FONT_NOTOSANS  '
+    '((?:FE_|T_)\d+_[^']*?\s*)'
+  |
+    # 双引号：允许结尾空格,例如"T_40_WZY_WS_FONT_NOTOSANS  "
+    "((?:FE_|T_)\d+_[^"]*?\s*)"
+  |
+    # 圆括号：允许 / 不允许结尾空格,例如(T_40_WZY_WS_FONT_NOTOSANS   )
+    \(((?:FE_|T_)\d+_[^)]*?)\)
+)
+'''
 #版本更新所用的key,即OB_开头
 pattern_upgrade=r'OB_[\w]+(?:_[\w]+)*'
 
@@ -59,6 +74,7 @@ for root, dirs, files in os.walk(path):
             with open(filepath, "rb") as f:
                 rawdata = f.read(10000)
                 encoding_type = chardet.detect(rawdata)['encoding'] or 'utf-8'
+        print(file)
 
         try:
             if ext == '.csv':
@@ -71,17 +87,23 @@ for root, dirs, files in os.walk(path):
                 continue
             elif ext in ext_decode_type:
                 text = decode_file(filepath)
-                keys_in_file = re.findall(pattern_not_upgrade, text)
+                keys_in_file = {
+                    next(g for g in m.groups() if g)
+                    for m in re.finditer(pattern_not_upgrade, text, re.VERBOSE)
+                }
                 for key in keys_in_file:
                     key_source_map.setdefault(key, set()).add(filepath)
-                    # print(f"[FOUND] {key} | {filepath}")
+                    print(f"[FOUND] {key} | {filepath}")
             else:
                 with open(filepath, 'r', encoding=encoding_type, errors='ignore') as f:
                     for line in f:
-                        keys_in_line = re.findall(pattern_not_upgrade, line)
+                        keys_in_line = {
+                            next(g for g in m.groups() if g)
+                            for m in re.finditer(pattern_not_upgrade, line, re.VERBOSE)
+                        }
                         for key in keys_in_line:
                             key_source_map.setdefault(key, set()).add(filepath)
-                            # print(f"[FOUND] {key} | {filepath}")
+                            print(f"[FOUND] {key} | {filepath}")
         except Exception as e:
             logging.exception(f"读取文件失败: {filepath} - {e}")
             continue
@@ -113,17 +135,21 @@ for file in csv_file_total_list:
                 if fe_value == 'FALSE':
                     continue
                 line_str = ','.join(row.values())
-                keys_in_line = re.findall(pattern_not_upgrade, line_str)
+                keys_in_line = {
+                    next(g for g in m.groups() if g)
+                    for m in re.finditer(pattern_not_upgrade, line, re.VERBOSE)
+                }
                 for key in keys_in_line:
                     key_source_map.setdefault(key, set()).add(file)
                     # print(f"[FOUND] {key} | {file}")
-
-
         else:
             f.seek(0)
             next(f)  # 跳过表头行
             for line in f:
-                keys_in_line = re.findall(pattern_not_upgrade, line)
+                keys_in_line = {
+                    next(g for g in m.groups() if g)
+                    for m in re.finditer(pattern_not_upgrade, line, re.VERBOSE)
+                }
                 for key in keys_in_line:
                     key_source_map.setdefault(key, set()).add(file)
                     # print(f"[FOUND] {key} | {file}")
@@ -131,7 +157,10 @@ for file in csv_file_total_list:
 for file in csv_file_upgrade_list:
     with open(file, 'r', encoding='utf-8', errors='ignore') as f:
         for line in f:
-            keys_in_line = re.findall(pattern_upgrade, line)
+            keys_in_line = {
+                next(g for g in m.groups() if g)
+                for m in re.finditer(pattern_not_upgrade, line, re.VERBOSE)
+            }
             for key in keys_in_line:
                 key_source_map.setdefault(key, set()).add(file)
                 # print(f"[FOUND] {key} | {file}")
@@ -173,6 +202,7 @@ missing_rows = []
 # file_path=r'aaaaa'
 
 for key in sorted(key_source_map.keys()):
+    print(key)
 # for key in sorted(key_source_map):
     if key in skip_key:
         continue
@@ -193,34 +223,34 @@ for key in sorted(key_source_map.keys()):
 
     # FE 逻辑
     if in_fe:
-        all_exist, all_empty, diff_files = check_key_in_group(
+        all_exist,any_empty, empty_files = check_key_in_group(
             key, keys_dict_fe, values_dict_fe
         )
         # print(f'all_exist:{all_exist}')
         # print(f'all_empty:{all_empty}')
         # print(f'diff_files:{diff_files}')
-        if all_empty:
+        if any_empty:
             print('-----')
-            missing_rows.append([key, file_path, '翻译为空', '全部都是'])
-        elif all_exist and not all_empty:
+            missing_rows.append([key, file_path, '翻译为空', ','.join(empty_files)])
+        elif all_exist and not any_empty:
             continue
         else:
             print('-----')
-            missing_rows.append([key, file_path, '', ','.join(diff_files)])
+            missing_rows.append([key, file_path, '不知道什么情况', ''])
         continue
 
     # FF 逻辑
     if in_ff:
-        all_exist, all_empty, diff_files = check_key_in_group(
+        all_exist, any_empty, empty_files = check_key_in_group(
             key, keys_dict_ff, values_dict_ff
         )
 
-        if all_empty:
-            missing_rows.append([key, file_path, '翻译为空', '全部都是'])
-        elif all_exist and not all_empty:
+        if any_empty:
+            missing_rows.append([key, file_path, '翻译为空', ','.join(empty_files)])
+        elif all_exist and not any_empty:
             continue
         else:
-            missing_rows.append([key, file_path, '', ','.join(diff_files)])
+            missing_rows.append([key, file_path, '不知道什么情况', ''])
 
 # ===== 输出 CSV =====
 now_str = datetime.now().strftime("%Y-%m-%d-%H_%M_%S")

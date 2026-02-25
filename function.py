@@ -20,20 +20,17 @@ def write_csv(filename, rows):
 
 
 def check_key_in_group(key, keys_dict, values_dict):
-    """
-    返回：
-    - all_exist: 是否所有文件都存在 key
-    - all_empty: 是否所有 value 都为空
-    - diff_files: 状态不一致的文件名列表
-    """
-    exist_files = []
-    empty_files = []
+    # 返回：
+    # - any_empty: 是否有文件的 value 为空
+    # - diff_files: 状态不一致的文件名列表（value 非空或 key 不存在）
+    #
+
     non_empty_files = []
+    empty_files = []
     not_exist_files = []
 
     for name, keys in keys_dict.items():
         if key in keys:
-            exist_files.append(name)
             val = values_dict[name].get(key, '').strip()
             if val == '':
                 empty_files.append(name)
@@ -42,12 +39,12 @@ def check_key_in_group(key, keys_dict, values_dict):
         else:
             not_exist_files.append(name)
 
+    any_empty = len(empty_files) > 0
     all_exist = len(not_exist_files) == 0
-    all_empty = all_exist and len(non_empty_files) == 0
 
-    diff_files = non_empty_files + not_exist_files
+    return all_exist,any_empty, empty_files
 
-    return all_exist, all_empty, diff_files
+
 
 
 

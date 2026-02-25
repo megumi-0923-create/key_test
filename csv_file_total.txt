@@ -33,3 +33,4 @@
 \Config\SceneData\GameModeSetting.csv
 \GGC\public\Config\csv\custom\inspectorConfig_Default.csv
 \GGC\public\Config\csv\UGCAnimStateChange.csv
+\Config\WorkshopACSlotForUnityAnimator.csv
